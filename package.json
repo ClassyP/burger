@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ClassyP/burger/issues"
   },
-  "homepage": "https://github.com/ClassyP/burger#readme"
+  "homepage": "https://github.com/ClassyP/burger#readme",
+  "dependencies": {
+    "mysql": "^2.15.0"
+  }
 }
