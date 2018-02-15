@@ -1,26 +1,10 @@
-var orm = require("../config/orm.js");
-var buger = {
-  all: function(cb) {
-    orm.all("buger", function(res) {
-      cb(res);
+
+module.exports = function(sequelize, DataTypes) {
+    var burger = sequelize.define("burger", {
+        id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+        burger_name: { type: DataTypes.TEXT, allowNull: false },
+        user_created: DataTypes.STRING,
+        is_eaten: { type: DataTypes.BOOLEAN, defaultValue: false }
     });
-  },
-  // The variables cols and vals are arrays.
-  create: function(cols, vals, cb) {
-    orm.create("burger", cols, vals, function(res) {
-      cb(res);
-    });
-  },
-  update: function(objColVals, condition, cb) {
-    orm.update("burger", objColVals, condition, function(res) {
-      cb(res);
-    });
-  },
-  delete: function(condition, cb) {
-    orm.delete("burger", condition, function(res) {
-      cb(res);
-    });
-  }
-};
-// Export the database functions for the controller (catsController.js).
-module.exports = buger;
+    return burger;
+  };
